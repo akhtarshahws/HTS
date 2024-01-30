@@ -486,6 +486,7 @@ export default {
 </script>
 
 <style scoped>
+
 .stepsHead {
   color: #f5f5f5;
   font-family: Open Sans;
