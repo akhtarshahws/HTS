@@ -32,6 +32,11 @@ export default {
     background: #00102C;
     margin-top: 5%;
     margin-bottom: 2%;
+    /* css for making the footer on the bottom  */
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    left: 20px;
 }
 
 .powered-by {
@@ -60,6 +65,15 @@ export default {
 /* .footerLeftCol{
     display: flex;
 } */
+@media (max-height:760px){
+    .footerCardWrapper {
+    position: relative;
+    bottom: 20px;
+    right: 0;
+    left: 20px;
+}
+
+}
 @media (max-width:850px) {
     .powered-by {
         font-size: 20px;
