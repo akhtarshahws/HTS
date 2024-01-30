@@ -91,7 +91,7 @@ import view from '../assets/imgs/view.svg'
 import moment from 'moment';
 import arrow from '../assets/imgs/arrow.svg'
 import axios from "axios";
-import html2pdf from "html2pdf.js";
+//import html2pdf from "html2pdf.js";
 
 
 
@@ -151,24 +151,24 @@ export default {
             }
         },
 
-        generatePDF(candidateId) {
-            this.fetchData(candidateId).then(() => {
+        // generatePDF(candidateId) {
+        //     this.fetchData(candidateId).then(() => {
 
-                // Create PDF content using the fetched data
-                const pdfContent = this.createPDFContent();
+        //         // Create PDF content using the fetched data
+        //         const pdfContent = this.createPDFContent();
 
-                // Generate PDF using html2pdf.js
-                const pdfOptions = {
-                    margin: 10,
-                    filename: "candidate_report.pdf",
-                    image: { type: "jpeg", quality: 0.98 },
-                    html2canvas: { scale: 2 },
-                    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-                };
+        //         // Generate PDF using html2pdf.js
+        //         const pdfOptions = {
+        //             margin: 10,
+        //             filename: "candidate_report.pdf",
+        //             image: { type: "jpeg", quality: 0.98 },
+        //             html2canvas: { scale: 2 },
+        //             jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+        //         };
 
-                html2pdf().from(pdfContent).set(pdfOptions).outputPdf();
-            });
-        },
+        //         html2pdf().from(pdfContent).set(pdfOptions).outputPdf();
+        //     });
+        // },
 
         createPDFContent() {
             // Customize the HTML content based on your data
