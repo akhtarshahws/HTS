@@ -3,15 +3,10 @@
   <div v-else class="followSteps-outerMostDiv">
     <div class="followSteps-outerDiv">
       <div v-if="!showReview" class="flexWrapper-div">
-        <div
-          class="headingWrapper"
-          v-motion
-          :initial="{ opacity: 0 }"
-          :enter="{
-            opacity: 1,
-            transition: { duration: 300, delay: 200, ease: 'easeIn' },
-          }"
-        >
+        <div class="headingWrapper" v-motion :initial="{ opacity: 0 }" :enter="{
+          opacity: 1,
+          transition: { duration: 300, delay: 200, ease: 'easeIn' },
+        }">
           <v-row>
             <v-col cols="6" lg="6" md="6" sm="12">
               <div>
@@ -37,13 +32,7 @@
       <div v-if="!showReview" class="stepperFlexDiv">
         <div class="headingWrapper">
           <v-divider class="stepperTopDivider" color="white"></v-divider>
-          <v-stepper
-            v-model="step"
-            :items="items"
-            show-actions
-            vertical
-            class="stepper"
-          >
+          <v-stepper v-model="step" :items="items" show-actions vertical class="stepper">
             <!-- <template v-for="(item, index) in items" :key="index" v-slot:[`item${index}`]> -->
             <div class="stepperWindowWrapper">
               <v-stepper-window>
@@ -55,43 +44,29 @@
                         Step <span class="stepperFirstHead-txt">01</span>/05
                       </p>
                       <p class="stepperSecondHead">Interviewee Name</p>
-                      <v-text-field
-                        placeholder="Interviewee name..."
-                      ></v-text-field>
+                      <v-text-field placeholder="Interviewee name..."></v-text-field>
                     </div>
                   </v-stepper-window-item>
                   <!-- ===================== -->
                   <v-stepper-window-item class="stepperScrollingWindow">
-                    <div
-                      v-motion
-                      :initial="{ opacity: 0 }"
-                      :enter="{
-                        opacity: 1,
-                        transition: {
-                          duration: 300,
-                          delay: 400,
-                          ease: 'easeIn',
-                        },
-                      }"
-                    >
+                    <div v-motion :initial="{ opacity: 0 }" :enter="{
+                      opacity: 1,
+                      transition: {
+                        duration: 300,
+                        delay: 400,
+                        ease: 'easeIn',
+                      },
+                    }">
                       <div>
                         <p class="stepperFirstHead">
                           Step <span class="stepperFirstHead-txt">01</span>/05
                         </p>
                         <p class="stepperSecondHead">Interviewee Name</p>
-                        <v-text-field
-                          class="textField"
-                          variant="outlined"
-                          placeholder="Interviewee name..."
-                          v-model="intervieweeName"
-                        ></v-text-field>
+                        <v-text-field class="textField" variant="outlined" placeholder="Interviewee name"
+                          v-model="intervieweeName"></v-text-field>
                         <div>
-                          <v-btn
-                            @click="moveToNextStep"
-                            class="view-detail continueBTN"
-                            :disabled="!isStepValid(1)"
-                            >Next</v-btn
-                          >
+                          <v-btn @click="moveToNextStep" class="view-detail continueBTN"
+                            :disabled="!isStepValid(1)">Next</v-btn>
                         </div>
                       </div>
                     </div>
@@ -108,51 +83,35 @@
                                         </div> -->
                   </v-stepper-window-item>
                   <v-stepper-window-item class="stepperScrollingWindow">
-                    <div
-                      v-motion
-                      :initial="{ opacity: 0 }"
-                      :enter="{
-                        opacity: 1,
-                        transition: {
-                          duration: 300,
-                          delay: 200,
-                          ease: 'easeIn',
-                        },
-                      }"
-                    >
+                    <div v-motion :initial="{ opacity: 0 }" :enter="{
+                      opacity: 1,
+                      transition: {
+                        duration: 300,
+                        delay: 200,
+                        ease: 'easeIn',
+                      },
+                    }">
                       <p class="stepperFirstHead">
                         Step <span class="stepperFirstHead-txt">02</span>/05
                       </p>
                       <p class="stepperSecondHead">Interviewer Name</p>
-                      <v-text-field
-                        class="textField"
-                        variant="outlined"
-                        placeholder="Interviewer name..."
-                        v-model="interviewerName"
-                      ></v-text-field>
+                      <v-text-field class="textField" variant="outlined" placeholder="Interviewer name"
+                        v-model="interviewerName"></v-text-field>
                       <div>
-                        <v-btn
-                          @click="moveToNextStep"
-                          class="view-detail continueBTN"
-                          :disabled="!isStepValid(2)"
-                          >Next</v-btn
-                        >
+                        <v-btn @click="moveToNextStep" class="view-detail continueBTN"
+                          :disabled="!isStepValid(2)">Next</v-btn>
                       </div>
                     </div>
                   </v-stepper-window-item>
                   <v-stepper-window-item class="stepperScrollingWindow">
-                    <div
-                      v-motion
-                      :initial="{ opacity: 0 }"
-                      :enter="{
-                        opacity: 1,
-                        transition: {
-                          duration: 300,
-                          delay: 200,
-                          ease: 'easeIn',
-                        },
-                      }"
-                    >
+                    <div v-motion :initial="{ opacity: 0 }" :enter="{
+                      opacity: 1,
+                      transition: {
+                        duration: 300,
+                        delay: 200,
+                        ease: 'easeIn',
+                      },
+                    }">
                       <p class="stepperFirstHead">
                         Step <span class="stepperFirstHead-txt">03</span>/05
                       </p>
@@ -162,22 +121,16 @@
                       <!-- <v-text-field class="textField" variant="outlined" placeholder="Position..."
                                                 v-model="positionAppliedFor"> </v-text-field> -->
 
-                      <select
-                        v-model="positionAppliedFor"
-                        id="postAppliedFor"
-                        class="form-control"
-                        required
-                        style="
+                      <select v-model="positionAppliedFor" id="postAppliedFor" class="form-control" required style="
                           background: rgba(255, 255, 255, 0);
-                          width: 800px; /* Adjust the width as needed */
+                          width: 100%; /* Adjust the width as needed */
                           height: 60px;
                           border: 1px solid rgba(75, 154, 250, 0.8);
                           border-radius: 50px;
                           padding: 5px;
                           padding-left: 30px;
                           color: rgba(75, 154, 250, 0.8);
-                        "
-                      >
+                        ">
                         <option disabled value="">Select Position</option>
                         <option value="1">Laravel</option>
                         <option value="2">IOS</option>
@@ -189,78 +142,50 @@
                         <option value="8">Vue</option>
                       </select>
                       <div>
-                        <v-btn
-                          @click="moveToNextStep"
-                          class="view-detail continueBTN"
-                          :disabled="!isStepValid(3)"
-                          >Next</v-btn
-                        >
+                        <v-btn @click="moveToNextStep" class="view-detail continueBTN"
+                          :disabled="!isStepValid(3)">Next</v-btn>
                       </div>
                     </div>
                   </v-stepper-window-item>
                   <v-stepper-window-item class="stepperScrollingWindow">
-                    <div
-                      v-motion
-                      :initial="{ opacity: 0 }"
-                      :enter="{
-                        opacity: 1,
-                        transition: {
-                          duration: 300,
-                          delay: 200,
-                          ease: 'easeIn',
-                        },
-                      }"
-                    >
+                    <div v-motion :initial="{ opacity: 0 }" :enter="{
+                      opacity: 1,
+                      transition: {
+                        duration: 300,
+                        delay: 200,
+                        ease: 'easeIn',
+                      },
+                    }">
                       <p class="stepperFirstHead">
                         Step <span class="stepperFirstHead-txt">04</span>/05
                       </p>
-                      <p class="stepperSecondHead">Skills</p>
-                      <v-text-field
-                        class="textField"
-                        variant="outlined"
-                        placeholder="Skills..."
-                        v-model="experience"
-                      ></v-text-field>
+                      <p class="stepperSecondHead">Experience</p>
+                      <v-text-field class="textField" variant="outlined" placeholder="Experience in Years"
+                        v-model="experience"></v-text-field>
                       <div>
-                        <v-btn
-                          @click="moveToNextStep"
-                          class="view-detail continueBTN"
-                          :disabled="!isStepValid(4)"
-                          >Next</v-btn
-                        >
+                        <v-btn @click="moveToNextStep" class="view-detail continueBTN"
+                          :disabled="!isStepValid(4)">Next</v-btn>
                       </div>
                     </div>
                   </v-stepper-window-item>
                   <v-stepper-window-item class="stepperScrollingWindow">
-                    <div
-                      v-motion
-                      :initial="{ opacity: 0 }"
-                      :enter="{
-                        opacity: 1,
-                        transition: {
-                          duration: 300,
-                          delay: 200,
-                          ease: 'easeIn',
-                        },
-                      }"
-                    >
+                    <div v-motion :initial="{ opacity: 0 }" :enter="{
+                      opacity: 1,
+                      transition: {
+                        duration: 300,
+                        delay: 200,
+                        ease: 'easeIn',
+                      },
+                    }">
                       <p class="stepperFirstHead">
                         Step <span class="stepperFirstHead-txt">05</span>/05
                       </p>
                       <p class="stepperSecondHead">Enter Email</p>
-                      <v-text-field
-                        class="textField"
-                        variant="outlined"
-                        placeholder="Email..."
-                        v-model="email"
-                      ></v-text-field>
+                      <v-text-field class="textField" variant="outlined" placeholder="Email..."
+                        v-model="email"></v-text-field>
                       <div>
-                        <v-btn
-                          @click="showReview = true"
-                          class="view-detail continueBTN"
-                          :disabled="!isStepValid(5)"
-                          >Next</v-btn
-                        >
+                        <v-btn @click="showReview = true" class="view-detail continueBTN"
+                          :disabled="!isStepValid(5)">Next</v-btn>
                         <!-- <v-btn @click="showReview = true" class="view-detail continueBTN">VIEW
                                                     DETAILS</v-btn> -->
                       </div>
@@ -282,172 +207,139 @@
       <!-- ==============testing=========== -->
       <div v-if="showReview" class="flexWrapper-div">
         <div>
-          <div
-            class="headingWrapper"
-            v-motion
-            :initial="{ opacity: 0 }"
-            :enter="{
+          <div>
+            <div class="headingWrapper" v-motion :initial="{ opacity: 0 }" :enter="{
               opacity: 1,
               transition: { duration: 300, delay: 200, ease: 'easeIn' },
-            }"
-          >
-            <p class="p-tags stepsHead">
-              Review <span class="stepsHead-span">Details</span>
-            </p>
-            <p class="p-tags stepsSubHead">Follow are the details</p>
-            <v-divider class="stepperTopDivider" color="white"></v-divider>
-            <div>
-              <v-row class="reviewRow">
-                <v-col cols="4" md="6" sm="12">
-                  <div
-                    class="reviewCardDiv"
-                    v-motion
-                    :initial="{ opacity: 0 }"
-                    :enter="{
+            }">
+              <p class="p-tags stepsHead">
+                Review <span class="stepsHead-span">Details</span>
+              </p>
+              <p class="p-tags stepsSubHead">Follow are the details</p>
+              <v-divider class="stepperTopDivider" color="white"></v-divider>
+              <div>
+                <v-row class="reviewRow">
+                  <v-col cols="4" md="6" sm="12">
+                    <div class="reviewCardDiv" v-motion :initial="{ opacity: 0 }" :enter="{
                       opacity: 1,
                       transition: { duration: 300, delay: 300, ease: 'easeIn' },
-                    }"
-                  >
-                    <div class="customFlexWrapper">
-                      <span class="profileSpanner">
-                        <img :src="profUrl" alt="" />
-                      </span>
-                      <div class="reviewCardtxtHolder">
-                        <p class="label">Interviewee name</p>
-                        <p class="labelTxt">
-                          <!-- John Wick -->
-                          {{ intervieweeName }}
-                        </p>
+                    }">
+                      <div class="customFlexWrapper">
+                        <span class="profileSpanner">
+                          <img :src="profUrl" alt="" />
+                        </span>
+                        <div class="reviewCardtxtHolder">
+                          <p class="label">Interviewee name</p>
+                          <p class="labelTxt">
+                            <!-- John Wick -->
+                            {{ intervieweeName }}
+                          </p>
+                        </div>
                       </div>
+                      <span>
+                        <v-btn class="editBtn" @click="editIntervieweeName">edit</v-btn>
+                      </span>
                     </div>
-                    <span>
-                      <v-btn class="editBtn" @click="editIntervieweeName"
-                        >edit</v-btn
-                      >
-                    </span>
-                  </div>
-                </v-col>
-                <v-col cols="4" md="6" sm="12">
-                  <div
-                    class="reviewCardDiv"
-                    v-motion
-                    :initial="{ opacity: 0 }"
-                    :enter="{
+                  </v-col>
+                  <v-col cols="4" md="6" sm="12">
+                    <div class="reviewCardDiv" v-motion :initial="{ opacity: 0 }" :enter="{
                       opacity: 1,
                       transition: { duration: 300, delay: 400, ease: 'easeIn' },
-                    }"
-                  >
-                    <div class="customFlexWrapper">
-                      <span class="profileSpanner">
-                        <img :src="profUrl" alt="" />
-                      </span>
-                      <div class="reviewCardtxtHolder">
-                        <p class="label">Interviewer name</p>
-                        <p class="labelTxt">
-                          <!-- Peter k -->
-                          {{ interviewerName }}
-                        </p>
+                    }">
+                      <div class="customFlexWrapper">
+                        <span class="profileSpanner">
+                          <img :src="profUrl" alt="" />
+                        </span>
+                        <div class="reviewCardtxtHolder">
+                          <p class="label">Interviewer name</p>
+                          <p class="labelTxt">
+                            <!-- Peter k -->
+                            {{ interviewerName }}
+                          </p>
+                        </div>
                       </div>
+                      <span>
+                        <v-btn class="editBtn" @click="editInterviewerName">edit</v-btn>
+                      </span>
                     </div>
-                    <span>
-                      <v-btn class="editBtn" @click="editInterviewerName"
-                        >edit</v-btn
-                      >
-                    </span>
-                  </div>
-                </v-col>
-                <v-col cols="4" md="6" sm="12">
-                  <div
-                    class="reviewCardDiv"
-                    v-motion
-                    :initial="{ opacity: 0 }"
-                    :enter="{
+                  </v-col>
+                  <v-col cols="4" md="6" sm="12">
+                    <div class="reviewCardDiv" v-motion :initial="{ opacity: 0 }" :enter="{
                       opacity: 1,
                       transition: { duration: 300, delay: 500, ease: 'easeIn' },
-                    }"
-                  >
-                    <div class="customFlexWrapper">
-                      <span class="profileSpanner">
-                        <img :src="profUrl" alt="" />
-                      </span>
-                      <div class="reviewCardtxtHolder">
-                        <p class="label">Position Applied For</p>
-                        <p class="labelTxt">
-                          <!-- Php Developer -->
-                          {{ positionAppliedFor }}
-                        </p>
+                    }">
+                      <div class="customFlexWrapper">
+                        <span class="profileSpanner">
+                          <img :src="profUrl" alt="" />
+                        </span>
+                        <div class="reviewCardtxtHolder">
+                          <p class="label">Position Applied For</p>
+                          <p class="labelTxt">
+                            <!-- Php Developer -->
+                            {{ positionAppliedFor }}
+                          </p>
+                        </div>
                       </div>
+                      <span>
+                        <v-btn class="editBtn" @click="editPosition">edit</v-btn>
+                      </span>
                     </div>
-                    <span>
-                      <v-btn class="editBtn" @click="editPosition">edit</v-btn>
-                    </span>
-                  </div>
-                </v-col>
-                <v-col cols="4" md="6" sm="12">
-                  <div
-                    class="reviewCardDiv"
-                    v-motion
-                    :initial="{ opacity: 0 }"
-                    :enter="{
+                  </v-col>
+                  <v-col cols="4" md="6" sm="12">
+                    <div class="reviewCardDiv" v-motion :initial="{ opacity: 0 }" :enter="{
                       opacity: 1,
                       transition: { duration: 300, delay: 600, ease: 'easeIn' },
-                    }"
-                  >
-                    <div class="customFlexWrapper">
-                      <span class="profileSpanner">
-                        <img :src="profUrl" alt="" />
-                      </span>
-                      <div class="reviewCardtxtHolder">
-                        <p class="label">Skills</p>
-                        <p class="labelTxt">
-                          <!-- 2 Years -->
-                          {{ experience }}
-                        </p>
+                    }">
+                      <div class="customFlexWrapper">
+                        <span class="profileSpanner">
+                          <img :src="profUrl" alt="" />
+                        </span>
+                        <div class="reviewCardtxtHolder">
+                          <p class="label">Skills</p>
+                          <p class="labelTxt">
+                            <!-- 2 Years -->
+                            {{ experience }}
+                          </p>
+                        </div>
                       </div>
+                      <span>
+                        <v-btn class="editBtn" @click="editExperience">edit</v-btn>
+                      </span>
                     </div>
-                    <span>
-                      <v-btn class="editBtn" @click="editExperience"
-                        >edit</v-btn
-                      >
-                    </span>
-                  </div>
-                </v-col>
-                <v-col cols="4" md="6" sm="12">
-                  <div
-                    class="reviewCardDiv"
-                    v-motion
-                    :initial="{ opacity: 0 }"
-                    :enter="{
+                  </v-col>
+                  <v-col cols="4" md="6" sm="12">
+                    <div class="reviewCardDiv" v-motion :initial="{ opacity: 0 }" :enter="{
                       opacity: 1,
                       transition: { duration: 300, delay: 700, ease: 'easeIn' },
-                    }"
-                  >
-                    <div class="customFlexWrapper">
-                      <span class="profileSpanner">
-                        <img :src="profUrl" alt="" />
-                      </span>
-                      <div class="reviewCardtxtHolder">
-                        <p class="label">Email</p>
-                        <p class="labelTxt">
-                          <!-- tgi@gmail.com -->
-                          {{ email }}
-                        </p>
+                    }">
+                      <div class="customFlexWrapper">
+                        <span class="profileSpanner">
+                          <img :src="profUrl" alt="" />
+                        </span>
+                        <div class="reviewCardtxtHolder">
+                          <p class="label">Email</p>
+                          <p class="labelTxt">
+                            <!-- tgi@gmail.com -->
+                            {{ email }}
+                          </p>
+                        </div>
                       </div>
+                      <span>
+                        <v-btn class="editBtn" @click="editEmail">edit</v-btn>
+                      </span>
                     </div>
-                    <span>
-                      <v-btn class="editBtn" @click="editEmail">edit</v-btn>
-                    </span>
-                  </div>
-                </v-col>
-              </v-row>
-              <div>
-                <!-- <router-link to="/review"> -->
-                <v-btn class="continueBTN" @click="submitForm">Continue</v-btn>
-                <!-- </router-link> -->
+                  </v-col>
+                </v-row>
+                <div>
+                  <!-- <router-link to="/review"> -->
+                  <v-btn class="continueBTN" @click="submitForm">Continue</v-btn>
+                  <!-- </router-link> -->
+                </div>
               </div>
+
             </div>
-            <FooterCom />
           </div>
+          <FooterCom />
         </div>
       </div>
     </div>
@@ -621,8 +513,11 @@ export default {
   height: 100%;
 }
 
-.form-control {
-  background-color: white;
+/* .form-control {
+  background-color: #00102c;
+} */
+.form-control option {
+  background-color: #00102c;
 }
 
 .previewBTN {
@@ -771,7 +666,7 @@ export default {
   display: flex;
 }
 
-.stepper > :first-child {
+.stepper> :first-child {
   display: flex;
   flex-direction: column;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
