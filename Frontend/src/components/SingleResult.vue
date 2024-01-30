@@ -5,8 +5,9 @@
                 <v-row>
                     <v-col cols="6">
                         <div style="display: flex;align-items: center;">
-                            <span style="display: inline;"><v-img class="backArrow" :src="arrow"
-                                    @click="goBack"></v-img></span>
+                            <span style="display: inline;">
+                                <v-img class="backArrow" :src="arrow" @click="goBack"></v-img>
+                            </span>
                             <span class="p-tags stepsHead">
 
                                 Test<span class="stepsHead-span"> Record</span>
@@ -68,14 +69,14 @@
             <td class="tableBodyTxt" colspan="4">Options</td>
         </tr>
       <tr>
-        
+
         <td class="tableBodyTxt">1.{{ item.question.opt1 }}</td>
         <td class="tableBodyTxt">2.{{ item.question.opt2 }}</td>
         <td class="tableBodyTxt">3.{{ item.question.opt3 }}</td>
         <td class="tableBodyTxt">4.{{ item.question.opt4 }}</td>
       </tr>
       <tr>
-        
+
         <td> Selected Option </td>
         <td >{{ item.selected_opt }}</td>
         <td>Correct Option</td>
@@ -84,38 +85,80 @@
       </tr>
     </tbody>
   </v-table> -->
-                    <div v-for="(item, index) in  desserts.complete_tests " :key="item.id">
+                    <div v-for="(item, index) in desserts.complete_tests" :key="item.id">
                         <v-expansion-panels color="#00102C" class="my-4 expensionQuestion">
                             <v-expansion-panel>
                                 <v-expansion-panel-title>
                                     Q.{{ index + 1 }} {{ item.question.question }}
                                 </v-expansion-panel-title>
-                                <v-expansion-panel-text>
-                                    <div style="color: white;">
-                                        <v-radio-group v-model="radioValue2">
-                                            <v-row class="questionRow">
-                                                <v-col cols="12" sm="12" lg="6" md="6"><v-radio color="#4B9AFA"
-                                                        :label="item.question.opt1" :disabled="true"
-                                                        value="option1"></v-radio>
-                                                    <v-radio color="#4B9AFA" :label="item.question.opt2" :disabled="true"
-                                                        value="option2" checked></v-radio></v-col>
-                                                <v-col cols="12" sm="12" lg="6" md="6"> <v-radio color="#4B9AFA"
-                                                        :label="item.question.opt3" :disabled="true"
-                                                        value="option3"></v-radio>
-                                                    <v-radio color="#4B9AFA" :label="item.question.opt4" :disabled="true"
-                                                        value="option4"></v-radio></v-col>
-                                            </v-row>
-                                        </v-radio-group>
-                                        <div>
-                                            Correct Option: {{ item.question.correct_opt }}
-                                        </div>
+                                <v-expansion-panel-text class="expensionAnswerExpender">
+                                    <div class="answerRow">
+                                        <v-row>
+                                            <v-col>
+                                                <h2>Question Options</h2>
+                                                <p><span class="optionBold">Option 1.</span>{{ item.question.opt1 }}</p>
+                                                <p><span class="optionBold">Option 1.</span>{{ item.question.opt2 }}</p>
+                                                <p><span class="optionBold">Option 1.</span>{{ item.question.opt3 }}</p>
+                                                <p><span class="optionBold">Option 1.</span>{{ item.question.opt4 }}</p>
+
+                                            </v-col>
+                                            <v-col>
+                                                <h2>Correct Answer</h2>
+                                                <p>Option {{ item.question.correct_opt }} is the correct Answer</p>
+                                            </v-col>
+                                            <v-col>
+                                                <h2>Selected Answer</h2>
+                                                <p>Option {{ item.selected_opt }} is the selected Answer</p>
+                                            </v-col>
+                                        </v-row>
                                     </div>
+                                    <!-- <div style="color: white;">
+            <v-radio-group v-model="item.selected_opt">
+              <v-row class="questionRow">
+                <v-col cols="12" sm="12" lg="6" md="6">
+                  <v-radio
+                    :checked="isSelected(item.question.opt1, item.selected_opt)"
+                    color="#4B9AFA"
+                    :label="item.question.opt1"
+                    :disabled="true"
+                    value="option1"
+                  ></v-radio>
+                  <v-radio
+                    :checked="isSelected(item.question.opt2, item.selected_opt)"
+                    color="#4B9AFA"
+                    :label="item.question.opt2"
+                    :disabled="true"
+                    value="option2"
+                  ></v-radio>
+                </v-col>
+                <v-col cols="12" sm="12" lg="6" md="6">
+                  <v-radio
+                    :checked="isSelected(item.question.opt3, item.selected_opt)"
+                    color="#4B9AFA"
+                    :label="item.question.opt3"
+                    :disabled="true"
+                    value="option3"
+                  ></v-radio>
+                  <v-radio
+                    :checked="isSelected(item.question.opt4, item.selected_opt)"
+                    color="#4B9AFA"
+                    :label="item.question.opt4"
+                    :disabled="true"
+                    value="option4"
+                  ></v-radio>
+                </v-col>
+              </v-row>
+            </v-radio-group>
+            <div>
+              Correct Option: {{ item.question.correct_opt }}
+              Selected Option: {{ item.selected_opt }}
+            </div>
+          </div> -->
                                 </v-expansion-panel-text>
                             </v-expansion-panel>
                         </v-expansion-panels>
                     </div>
                 </div>
-
 
             </div>
             <FooterCom class="footerInTestScreen" />
@@ -131,8 +174,6 @@ import moment from 'moment';
 import arrow from '../assets/imgs/arrow.svg'
 import axios from "axios";
 // import html2pdf from "html2pdf.js";
-
-
 
 export default {
     components: {
@@ -159,9 +200,13 @@ export default {
         this.getCandidate(candidateId);
     },
     methods: {
-
         goBack() {
             this.$router.push('/preview');
+        },
+
+
+        isSelected(index, selectedOpt) {
+            return index === selectedOpt;
         },
 
         // get all candidate when page load
@@ -174,13 +219,10 @@ export default {
 
                 this.desserts = response.data.data;
 
-
-
             } catch (error) {
                 console.error("Error:", error);
             }
         },
-
 
     },
     computed: {
@@ -224,6 +266,10 @@ export default {
     text-transform: uppercase;
     width: 168px;
     height: 68px;
+}
+
+.optionBold {
+    font-weight: 700;
 }
 
 .divider {
@@ -284,12 +330,17 @@ export default {
     padding: 0 5%;
 }
 
+.answerRow {
+    background-color: #00102C;
+    color: white;
+}
+
 .expensionQuestion .v-expansion-panel {
     border-radius: 60px;
     border: 1px solid #4B9AFA;
     background-color: #00102C;
     overflow: hidden;
-     opacity: 0.3; 
+    opacity: 0.3;
 }
 
 .v-expansion-panel-title__overlay {
@@ -307,7 +358,7 @@ export default {
 .v-expansion-panel .v-expansion-panel-text[data-v-32340455] {
     background-color: #00102C !important;
     border-radius: 0 0 60px 60px;
-     border-left: 1px solid #4B9AFA; 
+    border-left: 1px solid #4B9AFA;
 }
 
 .v-expansion-panel-title {
@@ -440,7 +491,6 @@ button .v-expansion-panel-title__overlay {
     margin-left: 10px;
 }
 
-
 .tableHead {
     border-radius: 20px 20px 0px 0px;
     border: 2px solid rgba(75, 154, 250, 0.20);
@@ -497,8 +547,7 @@ button .v-expansion-panel-title__overlay {
 .v-card-text {
     background-color: #071E40;
 }
-</style>
-<style>
+
 .v-field__field .v-field__input {
     padding: 0 !important;
 }
@@ -506,5 +555,15 @@ button .v-expansion-panel-title__overlay {
 .expensionQuestion .v-expansion-panel-text__wrapper {
     background: #00102C;
     border-radius: 0px 0px 55px 55px;
+    padding: 0 !important;
+}
+</style>
+<style>
+.expensionAnswerExpender .v-expansion-panel-text__wrapper {
+    padding: 0 !important;
+}
+
+.expensionAnswerExpender .v-expansion-panel-text__wrapper .answerRow {
+    padding: 2% 5% !important;
 }
 </style>
