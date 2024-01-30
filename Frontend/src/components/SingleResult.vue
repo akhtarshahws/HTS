@@ -97,9 +97,9 @@
                                             <v-col>
                                                 <h2>Question Options</h2>
                                                 <p><span class="optionBold">Option 1.</span>{{ item.question.opt1 }}</p>
-                                                <p><span class="optionBold">Option 1.</span>{{ item.question.opt2 }}</p>
-                                                <p><span class="optionBold">Option 1.</span>{{ item.question.opt3 }}</p>
-                                                <p><span class="optionBold">Option 1.</span>{{ item.question.opt4 }}</p>
+                                                <p><span class="optionBold">Option 2.</span>{{ item.question.opt2 }}</p>
+                                                <p><span class="optionBold">Option 3.</span>{{ item.question.opt3 }}</p>
+                                                <p><span class="optionBold">Option 4.</span>{{ item.question.opt4 }}</p>
 
                                             </v-col>
                                             <v-col>
@@ -434,6 +434,8 @@ button .v-expansion-panel-title__overlay {
     display: flex;
     justify-content: end;
     padding-bottom: 20px;
+    margin: 2% 0 0 0;
+    font-size: 25px;
 }
 
 .datepicker-Dialog {
