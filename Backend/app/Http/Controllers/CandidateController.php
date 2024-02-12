@@ -44,7 +44,7 @@ class CandidateController extends Controller
      * Store a newly created resource in storage.
      */
     public function storeCandidate(Request $request)
-     
+
     // return response()->json([
     //     'data' => $request->all()
     // ]);
@@ -87,8 +87,9 @@ class CandidateController extends Controller
                 // $question= Question::where('position_id',$request->post_applied_for)->inRandomOrder()->limit(10)->get();
 
                 #===================== api code ============================
-
+            
                 return response()->json([
+
                     'candidate_id' => $candidate
                     // 'questions'=> $question
                 ], 200);
@@ -125,7 +126,7 @@ class CandidateController extends Controller
     {
         try {
             $candidate = Candidate::findOrFail($id);
-    
+
             if ($candidate) {
                 $result = [
                     'status' => 200,
@@ -139,7 +140,7 @@ class CandidateController extends Controller
                 'message' => 'Candidate not Found',
             ], 404);
         }
-    
+
         // This block will only be reached if $candidate is not null but an error occurs
         return response()->json([
             'status' => 500,
@@ -220,7 +221,7 @@ class CandidateController extends Controller
     {
         try {
             $candidate = Candidate::findOrFail($id);
-    
+
             if ($candidate) {
                 $candidate->delete();
                 return response()->json([
@@ -234,7 +235,7 @@ class CandidateController extends Controller
                 'message' => 'Candidate not Found',
             ], 404);
         }
-    
+
         // This block will only be reached if $candidate is not null but the deletion fails for some reason
         return response()->json([
             'status' => 500,

@@ -54,9 +54,9 @@
                       <p class="stepperFirstHead">
                         Step <span class="stepperFirstHead-txt">01</span>/05
                       </p>
-                      <p class="stepperSecondHead">Interviewee Name</p>
+                      <p class="stepperSecondHead">Candidate Name</p>
                       <v-text-field
-                        placeholder="Interviewee name..."
+                        placeholder="Candidate name..."
                       ></v-text-field>
                     </div>
                   </v-stepper-window-item>
@@ -78,11 +78,11 @@
                         <p class="stepperFirstHead">
                           Step <span class="stepperFirstHead-txt">01</span>/05
                         </p>
-                        <p class="stepperSecondHead">Interviewee Name</p>
+                        <p class="stepperSecondHead">Candidate Name</p>
                         <v-text-field
                           class="textField"
                           variant="outlined"
-                          placeholder="Interviewee name..."
+                          placeholder="Candidate name..."
                           v-model="intervieweeName"
                         ></v-text-field>
                         <div>
@@ -214,11 +214,11 @@
                       <p class="stepperFirstHead">
                         Step <span class="stepperFirstHead-txt">04</span>/05
                       </p>
-                      <p class="stepperSecondHead">Skills</p>
+                      <p class="stepperSecondHead">Experience</p>
                       <v-text-field
                         class="textField"
                         variant="outlined"
-                        placeholder="Skills..."
+                        placeholder="Experience..."
                         v-model="experience"
                       ></v-text-field>
                       <div>
@@ -313,7 +313,7 @@
                         <img :src="profUrl" alt="" />
                       </span>
                       <div class="reviewCardtxtHolder">
-                        <p class="label">Interviewee name</p>
+                        <p class="label">Candidate name</p>
                         <p class="labelTxt">
                           <!-- John Wick -->
                           {{ intervieweeName }}
@@ -398,7 +398,7 @@
                         <img :src="profUrl" alt="" />
                       </span>
                       <div class="reviewCardtxtHolder">
-                        <p class="label">Skills</p>
+                        <p class="label">Experience</p>
                         <p class="labelTxt">
                           <!-- 2 Years -->
                           {{ experience }}
@@ -476,7 +476,7 @@ export default {
     experience: "",
     email: "",
     items: [
-      "Interviewee Name",
+      "Candidate Name",
       "Interviewer Name",
       "Position applied for",
       "Experience",

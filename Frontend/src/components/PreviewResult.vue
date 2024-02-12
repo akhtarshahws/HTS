@@ -92,6 +92,7 @@ import moment from 'moment';
 import arrow from '../assets/imgs/arrow.svg'
 import axios from "axios";
 import html2pdf from "html2pdf.js";
+// import API_URL from './helperComponents/CommonApi';
 
 
 
